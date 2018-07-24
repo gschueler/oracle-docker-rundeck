@@ -20,3 +20,11 @@ Run
 		-v $PWD/data:/u01/app/oracle/oradata \
 		-v $PWD/sql:/u01/app/oracle/scripts/startup \
 		oracle/database:11.2.0.2-xe
+
+
+Client connect
+==========
+
+using `sqlplus`, using the running docker image name from above as `$IMG`:
+
+	docker exec -ti $IMG sqlplus sys/RUNDECK_PASS@//localhost:1521/XE as sysdba

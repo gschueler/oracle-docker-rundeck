@@ -1,6 +1,7 @@
 #!/bin/bash
 
 docker run -d \
+    --name rdora11gxe \
 	--shm-size=2g \
 	-p 1521:1521 -p 8080:8080 \
 	-e ORACLE_PWD=RUNDECK_PASS \

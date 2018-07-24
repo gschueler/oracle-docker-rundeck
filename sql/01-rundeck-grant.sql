@@ -5,3 +5,5 @@ alter user rundeck quota unlimited on rundeck;
 grant create session to rundeck;
 grant create sequence to rundeck;
 grant create table to rundeck;
+grant create type to rundeck;
+grant execute on DBMS_CRYPTO to rundeck;
