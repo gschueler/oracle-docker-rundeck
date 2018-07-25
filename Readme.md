@@ -28,3 +28,25 @@ Client connect
 using `sqlplus`, using the running docker image name from above as `$IMG`:
 
 	docker exec -ti $IMG sqlplus sys/RUNDECK_PASS@//localhost:1521/XE as sysdba
+
+
+Rundeck setup
+========
+
+two jars are required in the classpath, 
+
+* ojdbcX.jar : http://www.oracle.com/technetwork/database/enterprise-edition/jdbc-112010-090769.html
+* rundeck-hibernate-dialect.jar https://github.com/gschueler/rundeck_oracle_dialect
+
+
+
+
+	dataSource.url = jdbc:oracle:thin:@localhost:1521:xe
+	dataSource.driverClassName = oracle.jdbc.driver.OracleDriver
+	dataSource.username = rundeck
+	dataSource.password = RUNDECK_PASS
+	dataSource.validationQuery=SELECT 1 FROM DUAL
+	dataSource.dialect = com.rundeck.hibernate.RundeckOracleDialect
+	#dataSource.dialect = org.hibernate.dialect.Oracle10gDialect
+	dataSource.pooled=false
+	hibernate.jdbc.use_get_generated_keys=true
